@@ -63,12 +63,13 @@ int main(int argc, char** argv)
 			std::vector<std::string> libs =
 			{
 			  getYamlcppLibDir() + "/libyaml-cpp.so",
+			   getPaassLibDir() + "/lib/libPaassRootStruct.so",
 			  getMergerLibDir() + "libTraceAnalyzerLib.so",
 			  getMergerLibDir() + "libmerger_data_dic.so",
 			  getMergerLibDir() + "libMergerLib.so",
-			  getMergerLibDir() + "libAnamergerLib.so",
-			  getMergerLibDir() + "libCorrectionLib.so",
-			  getPaassLibDir() + "/lib/libPaassRootStruct.so",
+			  //getMergerLibDir() + "libAnamergerLib.so",
+			  getMergerLibDir() + "libCorrectionLib.so"
+			//   getPaassLibDir() + "/lib/libPaassRootStruct.so"
 			};
 			for (const auto& lib : libs) {
 				std::cout << "loading libraries to proofserv: " << lib << std::endl;

@@ -23,8 +23,8 @@
 #include "PaassRootStruct.hpp"
 #include "OutputTreeData.hpp"
 #include "TParameter.h"
+#include "E19044Data.hpp"
 #include "CorrectedVANDLEData.h"
-#include "VANDLEToFCorrector.h"
 #include "Compression.h"
 
 class CorrectionSelector : public TSelector {
@@ -52,10 +52,10 @@ public:
 protected:
 
 	TTreeReader tree_reader_;
-	TTreeReaderValue <OutputTreeData<PspmtData, OutputTreeData<PspmtData, TreeData>>> beta_;
-	TTreeReaderValue <std::vector<processor_struct::CLOVERS>> clover_vec_;
-	TTreeReaderValue <std::vector<processor_struct::GAMMASCINT>> gammascint_vec_;
-	TTreeReaderValue <std::vector<processor_struct::VANDLES>> vandle_vec_;
+	TTreeReaderValue  <NEXTOutput> next_;
+
+	TTreeReaderValue <std::vector<processor_struct::CLOVER>> clover_vec_;
+	TTreeReaderValue <std::vector<processor_struct::VANDLE>> vandle_vec_;
 	std::vector<CorrectedVANDLEData> corrected_vandle_vec_;
 	ULong64_t total_entry_;
 
@@ -72,9 +72,35 @@ protected:
 	std::string proof_output_location_;
 	std::string vandle_corrector_config_;
 	Bool_t use_proof_;
-	VANDLEToFCorrector* corrector_ = nullptr;
 	const Double_t kSpeedOfLight = 299792458.;
 	const Double_t kNeutronMassMeV = 939.5654133;
+	double XPOS[10][9];
+	double TOFF[10][8];
+	double TDOFF[10][8];
+	double c_bar = 3.9045 * 2;
+    double clight = 29.9792;
+	double l[10][8];
+	double ncToF;
+	double ncToF_50;
+    double zpos;
+    double tdiff;
+    int segID;
+    double corToF;
+    double corToF_50;
+    double ToF1;
+    double l_h;
+    double ToF;
+	bool gBarZ;
+	double r;
+	double x;
+	double y;
+	double RawToF;
+	double xpos;
+	double ypos;
+	double Tdiff;
+	double mod;
+
+
 	
 	void SetBranch();
 

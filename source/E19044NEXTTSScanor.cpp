@@ -31,5 +31,8 @@ void E19044MergedVANDLETSScanor::SetReader() {
 }
 
 Bool_t E19044MergedVANDLETSScanor::IsInGate() {
+    if (tree_data_->Get()->output_vec_.empty())
+    return false;
+    else
 	return true;
 }

@@ -141,7 +141,7 @@ int main(int argc, char **argv)
 
 	         /** runs merger **/
             E19044BetaTreeMerger beta_imp_merger(&beta_ts_scannor,&implant_ts_scanor);
-            beta_imp_merger.SetFileSuffix(pid->GetName());
+            // beta_imp_merger.SetFileSuffix(pid->GetName());
             beta_imp_merger.Configure("E19044BetaTreeMerger");
             beta_imp_merger.Merge();
             beta_imp_merger.Write();

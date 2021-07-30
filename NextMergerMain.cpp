@@ -9,6 +9,7 @@
 #include "E19044NEXTTSScanor.hpp"
 #include "PaassRootStruct.hpp"
 #include "TreeMerger.hpp"
+#include <TCutG.h>
 
 /** prints usage **/
 void usage(char *argv0)
@@ -51,7 +52,6 @@ int main(int argc, char **argv)
     try {
 	 /** creates YamlParameter instance **/
         YamlParameter::Create(config_file_name);
-
         /** merges implant events to beta events **/
         {
             std::cout << "[MergerMain]: Merging NEXT events to VANDLE events..." << std::endl;
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 
 	         /** runs merger **/
             TreeMerger<NEXTOutput, E19044Output, PixTreeEvent> next_merger(&vandle_ts_scannor, &next_ts_scannor);
-            next_merger.Configure("NEXTMerger");
+            next_merger.Configure("NEXTMerger");          
             next_merger.Merge();
             next_merger.Write();
 

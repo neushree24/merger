@@ -70,9 +70,9 @@ add_subdirectory(anamergerLists)
 add_executable(merger_main MergerMain.cpp)
 add_executable(next_merger_main NextMergerMain.cpp)
 if(BUILD_ANAMERGER)
-    add_executable(anamerger_main anamerger/source/AnamergerMain.cpp)
-    add_executable(anamerger_sparse_main anamerger/source/AnamergerSparseMain.cpp)
-    #add_executable(correction_main anamerger/source/CorrectionMain.cpp)
+    #add_executable(anamerger_main anamerger/source/AnamergerMain.cpp)
+    #add_executable(anamerger_sparse_main anamerger/source/AnamergerSparseMain.cpp)
+    add_executable(correction_main anamerger/source/CorrectionMain.cpp)
 endif()
 add_executable(trace_analyzer_main trace_analyzer/TraceAnalyzerMain.cpp)
 
@@ -82,11 +82,11 @@ target_link_libraries(next_merger_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} M
    TraceAnalyzerLib merger_data_dic)
 if(BUILD_ANAMERGER)
     target_link_libraries(correction_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} MergerLib merger_data_dic
-       PaassRootStruct TraceAnalyzerLib AnamergerLib CorrectionLib )
-    target_link_libraries(anamerger_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} MergerLib merger_data_dic
-       PaassRootStruct TraceAnalyzerLib AnamergerLib CorrectionLib )
-    target_link_libraries(anamerger_sparse_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} MergerLib merger_data_dic
-       PaassRootStruct TraceAnalyzerLib AnamergerLib CorrectionLib )
+       PaassRootStruct TraceAnalyzerLib CorrectionLib )
+    #target_link_libraries(anamerger_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} MergerLib merger_data_dic
+    #   PaassRootStruct TraceAnalyzerLib CorrectionLib )
+    #target_link_libraries(anamerger_sparse_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} MergerLib merger_data_dic
+    #   PaassRootStruct TraceAnalyzerLib CorrectionLib )
 endif()
 target_link_libraries(trace_analyzer_main ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES} TraceAnalyzerLib PaassRootStruct MergerLib merger_data_dic)
 
@@ -95,14 +95,14 @@ install(TARGETS trace_analyzer_main
         LIBRARY DESTINATION lib
         )
 if(BUILD_ANAMERGER)
-install(TARGETS anamerger_main
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        )
-install(TARGETS anamerger_sparse_main
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        )
+#install(TARGETS anamerger_main
+#        RUNTIME DESTINATION bin
+#        LIBRARY DESTINATION lib
+#        )
+#install(TARGETS anamerger_sparse_main
+#        RUNTIME DESTINATION bin
+#        LIBRARY DESTINATION lib
+#        )
 install(TARGETS correction_main
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib

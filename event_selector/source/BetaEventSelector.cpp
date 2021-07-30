@@ -77,3 +77,5 @@ Bool_t BetaEventSelector::Process(Long64_t entry) {
 void BetaEventSelector::Terminate() {
    return;
 }
+for(int i=1; i<51-1; i++) {
+	h1->SetBinContent(i,229992.20)};
